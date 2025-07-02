@@ -1,0 +1,38 @@
+
+html, body {
+    position:relative;
+    margin:0;
+    height:100%;
+}
+#anim_wrap{
+    position:relative;
+    height: 80%;
+    width: 80%;
+    margin-left:auto;
+    margin-right:auto;
+    border: 3px solid #b21;
+}
+
+#anim_container {
+    position:relative;
+    width: 100%;
+    height:100%;
+    overflow:hidden; /* hide any child elements that go beyond the bounds of this element */    
+}
+
+.sprite {
+    position:absolute;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#fps_c {
+    position:absolute;
+    right: 1em;
+    top: 1em;
+    overflow:hidden;
+}

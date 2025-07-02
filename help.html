@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            li {
+                margin: 0.5em 0;
+            }
+            code {
+                white-space: pre;
+            }
+            .tc {
+                position: relative;
+                padding:2em;
+                margin:2em;
+                font-family: sans-serif;
+                background-color:cornsilk;
+                border: 2px solid #CB9;
+                margin-left:auto;
+                margin-right:auto;
+                max-width:90em;
+
+            }
+            body {
+                position:relative;
+            }
+            table {
+                margin-left:2em;
+                margin-right:2em;
+                border-collapse: collapse;
+            }
+
+            td, th {
+                padding: 0.4em 1em;
+            }
+            tr {
+                border-bottom: 2px solid rgba(0,0,0,0.1);
+            }
+
+            thead {
+                font-weight: 900;
+                background-color:rgba(0,0,0,0.1);
+                margin-bottom:0.6em;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="tc">
+        <header>
+            <h1>
+                Coding Challenge - Help
+            </h1>
+        </header>
+        <article>
+            <section>
+                <h2>Getting started</h2>
+                <p>work in pairs and make sure you swap who is doing the coding from time to time.</p>
+                <ol>
+                    <li>Explore the existing code. The HTML, Javascript and the CSS. Can you guess what each part does?</li>
+                    <li>Test your predictions. Try modifying a small bit of code and then testing what it does. Make the change, save the file and then reload the page in the browser. (Remember you can undo changes with Ctrl-Z)</li>
+                    <li>In pairs answer the following questions:
+                        <ol>
+                            <li>
+                                What does line 14 in script.js do?                                
+                            </li>
+                            <li>
+                                What would line 66 in sprite.js do?
+                            </li>
+                            <li>
+                                What file and line does the code to update the fps count start?
+                            </li>
+                            <li>
+                                What file and line does the code to check collisions start?
+                            </li>
+                            <li>
+                                How would you change the border color of the box to blue?
+                            </li>                                              
+                        </ol>
+                    </li>
+                    <li>Can you get the animation to go a different direction? Discuss the changes you made.</li>                    
+                </ol>
+            </section>
+            <section>
+                <h2>The main challenge</h2>
+                <p>Make the sprite bounce off the sides of the window.</p>
+                <ol>
+                    <li>Planning is the way to succeed. First solve the problem on paper, in pairs:
+                        <ul>
+                            <li>How do you get the X, Y coordinates of the sprite?</li>
+                            <li>How do you get the dimensions of the window?</li>
+                            <li>What is the condition that needs to be met to change the direction of the sprite?</li>
+                            <li>How can you write this condition in code?</li>
+                        </ul>
+                    </li>
+                    <li>Next, implement your solution in javascript. Write and test your solution, bit by bit.</li>
+                    <li>What might be the problem with writing and testing it all at once?</li>
+                    <li>Evaluate your solution. What works well, what could be improved? Do yu have all the information you need to make those improvements?</li>                    
+                </ol>
+            </section>
+            <section>
+                <h2>Cheatsheet</h2>
+                <p>Here are some code blocks to help piece together the solution</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>objective</th>
+                            <th>code example</th>
+                            <th>usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>make a variable (a named value)</td>
+                            <td>
+<code>var movedist = 5</code>
+                            </td>
+                            <td>this creates a variable called movedist and sets its value to 5. Later on you can use the variable, e.g. x = x + movedist, which would increas the value of x by the value of movedist.</td>
+                        </tr>
+                        <tr>
+                            <td>get container width and height</td>
+                            <td>
+<code>var cont = document.getElementById["anim_container"]
+var cwidth = cont.clientWidth;
+var cheight = cont.clientHeight;
+</code></td>
+                            <td>If your animation containing element has an id attribute 'anim_container' then this code will create variables cwidth and cheight set their values to match the dimensions of anim_container.</td>
+                        </tr>
+                            <td>do something if a condition is met</td>
+                            <td>
+<code>if(x > a - w){
+    d = -d;
+}
+</code>
+                            </td>
+                            <td>This code tests if the value of variable x is greater than the value of variable a minus the value of variable w. if it is, then the code in t he curly braces gets execuded.</td>                            
+                        </tr>
+                        <tr>
+                            <td>collecting related values into lists or arrays</td>
+                            <td>
+<code>var vals = ["apple", "grapefruit", "orange", "banana", "grape"]
+if(vals.includes(chosenfruit)){
+    alert("we have that fruit")
+}else{
+    vals.push(chosenfruit);
+    alter("we didn't that fruit, but we've now added it!")
+}
+alert("the 3rd fruit in the list is " + vals[2]);
+</code>
+                            </td>
+                            <td>groups related values (e.g. coordinates, directions, options, etc.) is very convenient in programming and helps to make code easier to write and more readable. In javascript array elements are accessed with an index that starts at 0, e.g. vals[0] will return the value of the 1st element in the array named vals.</td>
+                        </tr>
+                        <tr>
+                            <td>repeat a set of instructions (iteration)</td>
+                            <td>
+<code>for(i = 0; i < directions.length; i++){
+    if(collision(sprite, direction[i])){
+        bounce(sprite);
+    }
+    move(sprite);
+}</code>
+                            </td>
+                            <td>
+                                This code loops over the instructions inside the curly braces directions.length number of times. So if directions is an array with 4 elements in it, the for loop will go around 4 times.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>make a function to contain a block of reusable code, that can be called whenever needed</td>
+                            <td>
+<code>function usefulthing(arg1, arg2){
+var ret = 0
+    if(arg1 <= arg2){
+        ...
+        ret = 1;
+    }else{
+        ...
+    }
+    return ret;
+}
+
+r = usefulthing(x, w);
+</code>
+                            </td>
+                            <td>Functions allow you to write longer, more complex programs, because they let you reuse useful blocks of code. This also makes your code easier to understand, modify and debug.
+                                Functions have a name (usefulthing, in the case of this example code) and can accept arguments (as many as you like) which are values or variables that are sent to the function and which can be used inside it.
+                                the name of each argument is what it will be called inside the function. In the example usefulthing(x, w) sends the values of x and w to the function usefulthing. Then inside the function,
+                                those called are named arg1 and arg2. Functions can also return values.
+                            </td>
+                        </tr>
+
+                    </tbody>
+            </section>
+        </article>
+    </div>
+    </body>
+</html>
